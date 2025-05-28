@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfBackup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Backup>
+    <SaveName>mma</SaveName>
+    <ResourceBackup>C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi</ResourceBackup>
+    <TargetBackup>C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi</TargetBackup>
+    <Type>full</Type>
+  </Backup>
+</ArrayOfBackup>

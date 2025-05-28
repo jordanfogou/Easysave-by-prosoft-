@@ -1,0 +1,52 @@
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\bin\Debug\net8.0\EasySoft.exe
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\bin\Debug\net8.0\EasySoft.deps.json
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\bin\Debug\net8.0\EasySoft.runtimeconfig.json
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\bin\Debug\net8.0\EasySoft.dll
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\bin\Debug\net8.0\EasySoft.pdb
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\bin\Debug\net8.0\Newtonsoft.Json.dll
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\EasySoft.csproj.AssemblyReference.cache
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\EasySoft.GeneratedMSBuildEditorConfig.editorconfig
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\EasySoft.AssemblyInfoInputs.cache
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\EasySoft.AssemblyInfo.cs
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\EasySoft.csproj.CoreCompileInputs.cache
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\EasySoft.sourcelink.json
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\EasySoft.csproj.Up2Date
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\EasySoft.dll
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\refint\EasySoft.dll
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\EasySoft.pdb
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\EasySoft.genruntimeconfig.cache
+E:\school\A3  CESI\EasySave de chez Prosoft\projet\EasySoft\V1\EasySoft\obj\Debug\net8.0\ref\EasySoft.dll
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\bin\Debug\net8.0\EasySoft.exe
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\bin\Debug\net8.0\EasySoft.deps.json
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\bin\Debug\net8.0\EasySoft.runtimeconfig.json
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\bin\Debug\net8.0\EasySoft.dll
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\bin\Debug\net8.0\EasySoft.pdb
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\obj\Debug\net8.0\EasySoft.csproj.AssemblyReference.cache
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\obj\Debug\net8.0\EasySoft.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\obj\Debug\net8.0\EasySoft.AssemblyInfoInputs.cache
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\obj\Debug\net8.0\EasySoft.AssemblyInfo.cs
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\obj\Debug\net8.0\EasySoft.csproj.CoreCompileInputs.cache
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\obj\Debug\net8.0\EasySoft.csproj.Up2Date
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\obj\Debug\net8.0\EasySoft.dll
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\obj\Debug\net8.0\refint\EasySoft.dll
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\obj\Debug\net8.0\EasySoft.pdb
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\obj\Debug\net8.0\EasySoft.genruntimeconfig.cache
+C:\Users\dell\Desktop\BLOC Logiciel\V1\EasySoft\obj\Debug\net8.0\ref\EasySoft.dll
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\obj\Debug\net8.0\EasySoft.csproj.AssemblyReference.cache
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\obj\Debug\net8.0\EasySoft.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\obj\Debug\net8.0\EasySoft.AssemblyInfoInputs.cache
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\obj\Debug\net8.0\EasySoft.AssemblyInfo.cs
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\obj\Debug\net8.0\EasySoft.csproj.CoreCompileInputs.cache
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\obj\Debug\net8.0\EasySoft.dll
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\obj\Debug\net8.0\refint\EasySoft.dll
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\obj\Debug\net8.0\EasySoft.pdb
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\bin\Debug\net8.0\EasySoft.exe
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\bin\Debug\net8.0\EasySoft.deps.json
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\bin\Debug\net8.0\EasySoft.runtimeconfig.json
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\bin\Debug\net8.0\EasySoft.dll
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\bin\Debug\net8.0\EasySoft.pdb
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\obj\Debug\net8.0\EasySoft.csproj.Up2Date
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\obj\Debug\net8.0\EasySoft.genruntimeconfig.cache
+C:\Users\MANDZUKIC\Desktop\Ecole\Projet génie logi\EasySave_v1.0\EasySoft\obj\Debug\net8.0\ref\EasySoft.dll
