@@ -1,0 +1,127 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "EasySaveApp/3.0.0": {
+        "dependencies": {
+          "MaterialDesignThemes": "4.6.1",
+          "Newtonsoft.Json.Schema": "3.0.14",
+          "WindowsAPICodePack-Shell": "1.1.1"
+        },
+        "runtime": {
+          "EasySaveApp.dll": {}
+        }
+      },
+      "MaterialDesignColors/2.0.9": {
+        "runtime": {
+          "lib/net6.0/MaterialDesignColors.dll": {
+            "assemblyVersion": "2.0.9.0",
+            "fileVersion": "2.0.9.0"
+          }
+        }
+      },
+      "MaterialDesignThemes/4.6.1": {
+        "dependencies": {
+          "MaterialDesignColors": "2.0.9"
+        },
+        "runtime": {
+          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
+            "assemblyVersion": "4.6.1.0",
+            "fileVersion": "4.6.1.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "Newtonsoft.Json.Schema/3.0.14": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.Schema.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.14.25421"
+          }
+        }
+      },
+      "WindowsAPICodePack-Core/1.1.1": {
+        "runtime": {
+          "lib/Microsoft.WindowsAPICodePack.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        }
+      },
+      "WindowsAPICodePack-Shell/1.1.1": {
+        "dependencies": {
+          "WindowsAPICodePack-Core": "1.1.1"
+        },
+        "runtime": {
+          "lib/Microsoft.WindowsAPICodePack.Shell.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EasySaveApp/3.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MaterialDesignColors/2.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-b4tdvxPZUCKCpxeCNFnF/+2Hug2cd+/SUGYCt+RXRRrobFYZkZQsIjlbsTGy5Hup9yPMMxqFSEXGRIxCm2JZUA==",
+      "path": "materialdesigncolors/2.0.9",
+      "hashPath": "materialdesigncolors.2.0.9.nupkg.sha512"
+    },
+    "MaterialDesignThemes/4.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Yx3RxIqkwoe1rYxoUZ2iH1YdCly+dA8YAQJ5uknsUVhyVd1rgiXEn6fmtsovGaqKRZwUXGHnh4w7kRagxa8TCg==",
+      "path": "materialdesignthemes/4.6.1",
+      "hashPath": "materialdesignthemes.4.6.1.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "Newtonsoft.Json.Schema/3.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Qnu41yEFuMEJMuD1kJgslc4cF981K+hA7SmgXQ/N6pk6Zknvxt4g5Hx7KRykycP3oKyoz3aTFRV/TX+Vp6v7uQ==",
+      "path": "newtonsoft.json.schema/3.0.14",
+      "hashPath": "newtonsoft.json.schema.3.0.14.nupkg.sha512"
+    },
+    "WindowsAPICodePack-Core/1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GoURoQuE7ea7B7q24YRTBfZbsNO7ZtwSyBHbM8zO0ynwfjAGC0bbAmVrDvZ6HbWtqqOt6QTzdmYnj2WJglb5JQ==",
+      "path": "windowsapicodepack-core/1.1.1",
+      "hashPath": "windowsapicodepack-core.1.1.1.nupkg.sha512"
+    },
+    "WindowsAPICodePack-Shell/1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CPFamhL3jPo8O6+ErGsLS4LK3DWP5ncxqhbzpPnYkIW9rjatunUij35iTjprbr9mlYR/5Pbguw21MwSmTOKR4g==",
+      "path": "windowsapicodepack-shell/1.1.1",
+      "hashPath": "windowsapicodepack-shell.1.1.1.nupkg.sha512"
+    }
+  }
+}

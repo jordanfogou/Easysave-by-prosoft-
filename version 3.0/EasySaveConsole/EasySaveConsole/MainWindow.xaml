@@ -1,0 +1,125 @@
+﻿<Window x:Class="EasySaveConsole.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesigin="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="360" Width="750" ResizeMode="NoResize" WindowStyle="None"
+        Name="MyMainWindow">
+
+    <Window.Background>
+        <SolidColorBrush Color="#35524A"/>
+    </Window.Background>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#35524A" Offset="1"/>
+                    <GradientStop Color="#35524A" Offset="0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="20" Color="#003E20" RenderingBias="Quality" ShadowDepth="1"/>
+            </Grid.Effect>
+
+            <Grid Background="#35524A">
+                <TextBlock Text="EASYSAVE" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontWeight="Normal" Foreground="White" FontSize="45"/>
+                <Rectangle HorizontalAlignment="Center" Height="100" Stroke="White" VerticalAlignment="Center" Width="200"/>
+            </Grid>
+
+            <StackPanel Grid.Row="1">
+                <Button Margin="10" Click="StartConnexionToServer" Background="#F3F3F4" Height="48" BorderBrush="{x:Null}">
+                    <Grid Width="150" Height="30">
+                        <materialDesigin:PackIcon Kind="Connection" VerticalAlignment="Center" Margin="-4,0,0,0" Foreground="Black"/>
+                        <TextBlock x:Name="StartCo" Text="Start connexion" Margin="16,0,0,0" FontFamily="Segoe UI Variable Text Semibold" TextAlignment="Center"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="154" FontSize="14" Foreground="Black" FontWeight="Bold"/>
+                    </Grid>
+                </Button>
+                <Button Click="StopConnexionToServer" Background="#F3F3F4" Height="48" BorderBrush="{x:Null}" Width="180">
+                    <Grid Width="150" Height="30">
+                        <materialDesigin:PackIcon Kind="StopCircle" VerticalAlignment="Center" Margin="-4,0,0,0" Foreground="Black"/>
+                        <TextBlock x:Name="StartCo1" Margin="16,0,0,0" FontFamily="Segoe UI Variable Text Semibold" TextAlignment="Center"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="154" FontSize="14" Foreground="Black" FontWeight="Bold"><Run Text="S"/><Run Language="fr-fr" Text="top"/><Run Text=" connexion"/></TextBlock>
+                    </Grid>
+                </Button>
+
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="91*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle  Margin="15,15,15,15" Fill="#FFD0D1D0" RadiusX="11" RadiusY="11" Grid.ColumnSpan="2"/>
+                <ListBox x:Name="ListSaveWork" Margin="27,65,347,27"/>
+
+                <Label x:Name="ipserver" Content="IP SERVER : " FontFamily="Sitka Text" Margin="21,33,0,264" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="AdresseTextBox" Margin="105,32,0,269" HorizontalAlignment="Left" Width="188"/>
+
+
+
+                <Button  Background="#003E20" BorderBrush="{x:Null}" Margin="314,129,138,156" Click="PauseBackup_Click">
+                    <Grid Width="74" Height="30">
+                        <materialDesigin:PackIcon Kind="Pause" VerticalAlignment="Center" Foreground="White" Margin="1,0,0,0"/>
+                        <TextBlock x:Name="PlauseText" Text="PAUSE" Margin="27,0,0,0" FontFamily="Sitka Text" TextAlignment="Justify"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="54" FontSize="10" Foreground="White"/>
+                    </Grid>
+                </Button>
+
+                <Button  Background="#003E20" BorderBrush="{x:Null}" Margin="416,129,36,156" Click="StopBackup_Click">
+                    <Grid Width="74" Height="30">
+                        <materialDesigin:PackIcon Kind="Stop" VerticalAlignment="Center" Foreground="White" Margin="1,0,0,0"/>
+                        <TextBlock x:Name="StopText" Text="STOP" Margin="27,0,0,0" FontFamily="Sitka Text" TextAlignment="Justify"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="54" FontSize="10" Foreground="White"/>
+                    </Grid>
+                </Button>
+
+
+                <Button  Background="#003E20" BorderBrush="{x:Null}" Margin="212,129,240,156" Click="StartBackup_Click">
+                    <Grid Width="74" Height="30">
+                        <materialDesigin:PackIcon Kind="Play" VerticalAlignment="Center" Foreground="White" Margin="1,0,0,0"/>
+                        <TextBlock x:Name="PlayText1" Text="PLAY" Margin="29,0,0,0" FontFamily="Sitka Text" TextAlignment="Justify"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="54" FontSize="10" Foreground="White"/>
+                    </Grid>
+                </Button>
+                <ProgressBar x:Name="ProgressionBar" HorizontalAlignment="Left" Height="10" Margin="234,197,0,0" VerticalAlignment="Top" Width="242"/>
+
+            </Grid>
+
+        </Grid>
+        <Grid x:Name="Grid_Menu" Grid.ColumnSpan="2" Background="#003E20" MouseDown="GridMenuMouseDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="#F3F3F4">
+                <Button x:Name="Buttonexit" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Red" Click="CloseWindow_Click">
+                    <materialDesigin:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="#F3F3F4" Margin="700,0,0,0">
+                <Button x:Name="ButtonMinimize" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#003E20" Click="Button_Minimize_Console">
+                    <materialDesigin:PackIcon Kind="Minimize" Height="21" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Button>
+            </StackPanel>
+            <Label Content="EasySave V3.0" HorizontalAlignment="Left" Height="34" VerticalAlignment="Center" Width="126" FontWeight="Bold" FontFamily="Segoe UI Variable Text Semibold" Foreground="White" FontSize="18" Margin="342,0,0,0"/>
+        </Grid>
+        <Button Click="RefreshConnexionToServer" Background="#F3F3F4" BorderBrush="{x:Null}" Margin="10,224,10,58" Grid.Row="1">
+            <Grid Width="150" Height="30">
+                <materialDesigin:PackIcon Kind="Refresh" VerticalAlignment="Center" Margin="-4,0,0,0" Foreground="Black"/>
+                <TextBlock x:Name="StartCo2" Margin="16,0,0,0" FontFamily="Segoe UI Variable Text Semibold" TextAlignment="Center"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="154" FontSize="14" Foreground="Black" FontWeight="Bold"><Run Language="fr-fr" Text="Refresh"/><Run Text=" connexion"/></TextBlock>
+            </Grid>
+        </Button>
+    </Grid>
+</Window>

@@ -1,37 +1,74 @@
+using System;
+
 namespace EasySaveApp.model
 {
-    // AVANT : class Backup { … }
-    // APRÈS : on rend la classe publique
+    /// <summary>
+    /// Classe représentant une configuration de sauvegarde
+    /// </summary>
     public class Backup
     {
-        // Propriétés existantes
-        public string ResourceBackup { get; set; }
-        public string TargetBackup { get; set; }
+        /// <summary>
+        /// Nom unique de la sauvegarde
+        /// </summary>
         public string SaveName { get; set; }
+
+        /// <summary>
+        /// Chemin du dossier source
+        /// </summary>
+        public string ResourceBackup { get; set; }
+
+        /// <summary>
+        /// Chemin du dossier cible
+        /// </summary>
+        public string TargetBackup { get; set; }
+
+        /// <summary>
+        /// Type de sauvegarde ("full" ou "diff")
+        /// </summary>
         public string Type { get; set; }
+
+        /// <summary>
+        /// Chemin du dossier miroir (utilisé uniquement pour les sauvegardes différentielles)
+        /// </summary>
         public string MirrorBackup { get; set; }
 
-        // Nouveaux champs pour le chiffrement
+        /// <summary>
+        /// Tableau des extensions de fichiers à chiffrer (ex: [".txt", ".bmp", ".docx"])
+        /// </summary>
         public string[] ExtensionsToEncrypt { get; set; }
+
+        /// <summary>
+        /// Mot de passe utilisé pour le chiffrement
+        /// </summary>
         public string EncryptionPassword { get; set; }
 
-        // Constructeur mis à jour pour accepter 7 arguments
-        public Backup(
-            string saveName,
-            string source,
-            string target,
-            string type,
-            string mirror,
-            string[] extensionsToEncrypt,
-            string encryptionPassword)
+        /// <summary>
+        /// Constructeur complet avec tous les paramètres
+        /// </summary>
+        public Backup(string saveName, string resourceBackup, string targetBackup, string type,
+                     string mirrorBackup, string[] extensionsToEncrypt, string encryptionPassword)
         {
             SaveName = saveName;
-            ResourceBackup = source;
-            TargetBackup = target;
+            ResourceBackup = resourceBackup;
+            TargetBackup = targetBackup;
             Type = type;
-            MirrorBackup = mirror;
-            ExtensionsToEncrypt = extensionsToEncrypt;
-            EncryptionPassword = encryptionPassword;
+            MirrorBackup = mirrorBackup;
+            ExtensionsToEncrypt = extensionsToEncrypt ?? new string[0];
+            EncryptionPassword = encryptionPassword ?? string.Empty;
+        }
+
+        /// <summary>
+        /// Constructeur par défaut (nécessaire pour la désérialisation JSON)
+        /// </summary>
+        public Backup()
+        {
+            SaveName = string.Empty;
+            ResourceBackup = string.Empty;
+            TargetBackup = string.Empty;
+            Type = "full";
+            MirrorBackup = string.Empty;
+            ExtensionsToEncrypt = new string[0];
+            EncryptionPassword = string.Empty;
         }
     }
 }

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="EasySaveApp.App">
+    <Position X="5.25" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>MAAAgIAAAAAAAAIAAAAAgACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.model.Backup">
+    <Position X="5.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAEAQAAQQCCAAA=</HashCode>
+      <FileName>model\Backup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.model.BackupWithProgress" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="0.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAACAQAAREYAAERAAggAAAAAAAKIgAAACCBBA=</HashCode>
+      <FileName>model\Backup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EasySaveApp.model.CryptFormat">
+    <Position X="0.5" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>model\CryptFormat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.model.DataLogs">
+    <Position X="3" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAwABAAAAQAAAIAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>model\DataLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.model.DataState">
+    <Position X="5.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ChIAACAAAAACAAAAAAAAAAAAAAAAAAAIAAgAgAAAAAA=</HashCode>
+      <FileName>model\DataState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.model.FileCompare" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>model\FileCompare.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EasySaveApp.model.FileInQueue">
+    <Position X="3.25" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>model\FileInQueue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.model.JailAppsFormat">
+    <Position X="0.75" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>model\JailAppsFormat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.model.Model">
+    <Position X="7.75" Y="0.5" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>i0QAAAApAAACEAYkJIAAgPBiYAgBEAAAAAAIICAKCBA=</HashCode>
+      <FileName>model\Model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.model.PriorityFormat">
+    <Position X="0.5" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>model\PriorityFormat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.Socket.Connection" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="7" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAEAAAABAAAAAAAAAAAAAAgAAgAAAAA=</HashCode>
+      <FileName>Socket\Connection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EasySaveApp.Socket.ConnectionPool">
+    <Position X="20.25" Y="7" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEIAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAACABAAA=</HashCode>
+      <FileName>Socket\ConnectionPool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.Socket.MessageContent">
+    <Position X="13.25" Y="9.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Socket\MessageContent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.Socket.Server">
+    <Position X="3" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAACAEAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Socket\Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.view.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="0.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>gAABADBQCAAAmAgBJQAEACSAAABAABOAhBQFACAIAEA=</HashCode>
+      <FileName>view\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EasySaveApp.ViewModel.StateObject">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACCAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>ViewModel\StateObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EasySaveApp.viewmodel.ViewModel">
+    <Position X="17.5" Y="0.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAACAAAgAIAEAZoAAIEAAAkQAEAAQAAAAIAAAIAMA=</HashCode>
+      <FileName>ViewModel\ViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="EasySaveApp.Socket.MessageType">
+    <Position X="15.25" Y="9.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAAEAAAAAAAAAAAAAgAAAAAAAAAAAEAQAAAAAgA=</HashCode>
+      <FileName>Socket\MessageContent.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

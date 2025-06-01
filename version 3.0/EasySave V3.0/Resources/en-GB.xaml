@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="backup_name">Backup Name</system:String>
+    <system:String x:Key="diff_button">Differential Backup</system:String> 
+    <system:String x:Key="mirror_button">Mirror Backup</system:String>
+    <system:String x:Key="source_name">Source folder path</system:String>
+    <system:String x:Key="target_name">Target folder path</system:String>
+    <system:String x:Key="mirror_name">Mirror folder backup</system:String>
+    <system:String x:Key="text_addsave">ADD SAVE</system:String>
+    <system:String x:Key="text_startbackup">START BACKUPS</system:String>
+    <system:String x:Key="text_jailapps">BlackList Apps</system:String>
+    <system:String x:Key="francais_text">FRANCAIS</system:String>
+    <system:String x:Key="english_text">ENGLISH</system:String>
+    <system:String x:Key="msg_checkfield">Please complete all fields</system:String>
+    <system:String x:Key="delete_backup">Delete Backup</system:String>
+    <system:String x:Key="msg_addsave">YOU HAVE ADDED A BACKUP</system:String>
+    <system:String x:Key="msg_diffcheckfield">Please complete all fields test!</system:String>
+    <system:String x:Key="msg_diffaddsave">YOU HAVE ADDED A DIFFERENTIAL BACKUP</system:String>
+    <system:String x:Key="msg_errorsave">BACKUP FAILURE BLACKLIST SOFTWARE</system:String>
+    <system:String x:Key="msg_successsave">Successful Backup</system:String>
+    <system:String x:Key="btn_selectall">All</system:String>
+    <system:String x:Key="msg_emptyfield">Please complete all fields !</system:String>
+    <system:String x:Key="msg_saveaddeddiff">YOU HAVE ADDED A DIFFERENTIAL BACKUP</system:String>
+    <system:String x:Key="msg_saveaddedfull">YOU HAVE ADDED A FULL BACKUP</system:String>
+    <system:String x:Key="msg_failsave">BACKUP FAILURE ❎ BLACKLIST APP</system:String>
+    <system:String x:Key="msg_successave">SUCCESSFUL BACKUP ✅</system:String>
+    <system:String x:Key="msg_parameters">Parameters</system:String>
+    <system:String x:Key="btn_unselectall">None</system:String>
+    <system:String x:Key="btn_priority">First Extension</system:String>
+    <system:String x:Key="maxsize_btn">Max Size File</system:String>
+</ResourceDictionary>

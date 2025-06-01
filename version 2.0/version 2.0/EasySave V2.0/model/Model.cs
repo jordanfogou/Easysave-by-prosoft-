@@ -62,6 +62,9 @@ namespace EasySaveApp.model
         public string MirrorResource { get; set; }
         public bool Format { get; set; }
 
+        // Propriété pour stocker le temps de cryptage du dernier fichier
+        private int lastEncryptionTime { get; set; }
+
         /// <summary>
         /// Constructeur de la classe Model.
         /// </summary>
@@ -149,53 +152,15 @@ namespace EasySaveApp.model
                 DataState.ProgressState = Progs;
                 DataState.BackupDateState = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                 DataState.SaveState = true;
-                UpdateStateFile();
 
                 // Copie du fichier
                 file.CopyTo(tempPath, true);
 
-                // Si l’extension du fichier figure dans ExtensionsToEncrypt, lancer CryptoSoft
-                string extension = file.Extension.ToLower();
-                if (ExtensionsToEncrypt.Contains(extension))
-                {
-                    // Exemple d’appel à CryptoSoft :
-                    // CryptoSoft.exe –in "cheminFichierSource" –out "cheminFichierChiffré" –pwd "motDePasse"
-                    // Ici, on suppose que CryptoSoft.exe se trouve côte-à-côte avec EasySaveApp.exe
-                    string cryptExe = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CryptoSoft.exe");
-                    string arguments = $"-in \"{tempPath}\" -out \"{tempPath}\" -pwd \"{EncryptionPassword}\"";
-                    try
-                    {
-                        var p = new Process();
-                        p.StartInfo.FileName = cryptExe;
-                        p.StartInfo.Arguments = arguments;
-                        p.StartInfo.CreateNoWindow = true;
-                        p.StartInfo.UseShellExecute = false;
-                        p.Start();
-                        p.WaitForExit();
+                // Cryptage si nécessaire
+                lastEncryptionTime = ProcessEncryption(file, tempPath);
+                DataState.EncryptionTimeState = lastEncryptionTime;
 
-                        // Récupérer le code de sortie pour renseigner EncryptionTimeState
-                        int exitCode = p.ExitCode;
-                        // Si exitCode == 0, la console a déjà affiché le temps en ms, mais on peut le récupérer
-                        // depuis la sortie standard si nécessaire. Pour simplifier, on suppose que le programme
-                        // écrit directement la durée en ms sur sa sortie, qu’on ignore ici, et on ne gère que l’ExitCode.
-                        // Si besoin plus précis, utilisez RedirectStandardOutput = true.
-                        DataState.EncryptionTimeState = exitCode == 0 ? (int)stopwatch.ElapsedMilliseconds : -exitCode;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(
-                            $"Erreur lors de l'appel à CryptoSoft : {ex.Message}",
-                            "Erreur de cryptage",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error);
-                        DataState.EncryptionTimeState = -1;
-                    }
-                }
-                else
-                {
-                    // Aucune extension à chiffrer : on marque 0 ms
-                    DataState.EncryptionTimeState = 0;
-                }
+                UpdateStateFile();
 
                 Nbfiles++;
                 Size += file.Length;
@@ -268,44 +233,15 @@ namespace EasySaveApp.model
                 DataState.ProgressState = Progs;
                 DataState.BackupDateState = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                 DataState.SaveState = true;
-                UpdateStateFile();
 
                 // Copie du fichier
                 v.CopyTo(tempPath, true);
 
-                // Chiffrement si extension à gérer
-                string extension = v.Extension.ToLower();
-                if (ExtensionsToEncrypt.Contains(extension))
-                {
-                    string cryptExe = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CryptoSoft.exe");
-                    string arguments = $"-in \"{tempPath}\" -out \"{tempPath}\" -pwd \"{EncryptionPassword}\"";
-                    try
-                    {
-                        var p = new Process();
-                        p.StartInfo.FileName = cryptExe;
-                        p.StartInfo.Arguments = arguments;
-                        p.StartInfo.CreateNoWindow = true;
-                        p.StartInfo.UseShellExecute = false;
-                        p.Start();
-                        p.WaitForExit();
+                // Cryptage si nécessaire
+                lastEncryptionTime = ProcessEncryption(v, tempPath);
+                DataState.EncryptionTimeState = lastEncryptionTime;
 
-                        int exitCode = p.ExitCode;
-                        DataState.EncryptionTimeState = exitCode == 0 ? (int)stopwatch.ElapsedMilliseconds : -exitCode;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(
-                            $"Erreur lors de l'appel à CryptoSoft : {ex.Message}",
-                            "Erreur de cryptage",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error);
-                        DataState.EncryptionTimeState = -1;
-                    }
-                }
-                else
-                {
-                    DataState.EncryptionTimeState = 0;
-                }
+                UpdateStateFile();
 
                 Nbfiles++;
                 Size += v.Length;
@@ -318,6 +254,88 @@ namespace EasySaveApp.model
             TimeTransfert = stopwatch.Elapsed;
         }
 
+        /// <summary>
+        /// Gère le cryptage d'un fichier si son extension est dans la liste
+        /// </summary>
+        private int ProcessEncryption(FileInfo file, string targetPath)
+        {
+            string extension = file.Extension.ToLower();
+
+            // Vérifier si l'extension est dans la liste à crypter
+            if (ExtensionsToEncrypt != null && ExtensionsToEncrypt.Contains(extension) && !string.IsNullOrEmpty(EncryptionPassword))
+            {
+                string cryptExe = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CryptoSoft.exe");
+
+                // Vérifier que CryptoSoft.exe existe
+                if (!File.Exists(cryptExe))
+                {
+                    MessageBox.Show($"CryptoSoft.exe introuvable dans : {cryptExe}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return -1;
+                }
+
+                string encryptedPath = targetPath + ".encrypted";
+                string arguments = $"-in \"{targetPath}\" -out \"{encryptedPath}\" -pwd \"{EncryptionPassword}\"";
+
+                try
+                {
+                    var cryptoStopwatch = new Stopwatch();
+                    var p = new Process();
+                    p.StartInfo.FileName = cryptExe;
+                    p.StartInfo.Arguments = arguments;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.RedirectStandardError = true;
+
+                    cryptoStopwatch.Start();
+                    p.Start();
+                    p.WaitForExit();
+                    cryptoStopwatch.Stop();
+
+                    if (p.ExitCode == 0)
+                    {
+                        // Lire le temps depuis la sortie standard
+                        string output = p.StandardOutput.ReadToEnd().Trim();
+                        int cryptTime;
+
+                        if (int.TryParse(output, out cryptTime))
+                        {
+                            // Remplacer le fichier original par le fichier crypté
+                            File.Delete(targetPath);
+                            File.Move(encryptedPath, targetPath);
+                            return cryptTime;
+                        }
+                        else
+                        {
+                            // Si on ne peut pas parser, utiliser le temps mesuré
+                            File.Delete(targetPath);
+                            File.Move(encryptedPath, targetPath);
+                            return (int)cryptoStopwatch.ElapsedMilliseconds;
+                        }
+                    }
+                    else
+                    {
+                        // Nettoyer le fichier temporaire si erreur
+                        if (File.Exists(encryptedPath))
+                            File.Delete(encryptedPath);
+
+                        string errorOutput = p.StandardError.ReadToEnd();
+                        Debug.WriteLine($"CryptoSoft error: {errorOutput}");
+                        return -p.ExitCode;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Erreur CryptoSoft : {ex.Message}");
+                    return -999;
+                }
+            }
+            else
+            {
+                // Pas de cryptage nécessaire
+                return 0;
+            }
+        }
 
         /// <summary>
         /// Réinitialise les compteurs de DataState.
@@ -337,7 +355,7 @@ namespace EasySaveApp.model
 
 
         /// <summary>
-        /// Met à jour le fichier d’état JSON (state.json) à chaque étape.
+        /// Met à jour le fichier d'état JSON (state.json) à chaque étape.
         /// </summary>
         private void UpdateStateFile()
         {
@@ -400,7 +418,8 @@ namespace EasySaveApp.model
                 TargetLog = targetlog,
                 BackupDateLog = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"),
                 TotalSizeLog = this.TotalSize,
-                TransactionTimeLog = Time
+                TransactionTimeLog = Time,
+                EncryptionTimeLog = lastEncryptionTime  // Ajout du temps de cryptage
             };
 
             // On construit les chemins pour DailyLogs_<date>.json/.xml
@@ -425,7 +444,7 @@ namespace EasySaveApp.model
                 }
                 catch
                 {
-                    // Si le fichier n’existe pas, on crée le nœud racine <Logs>
+                    // Si le fichier n'existe pas, on crée le nœud racine <Logs>
                     XElement Logs = new XElement("Logs");
                     using (var sr = new StreamWriter(pathfileXml))
                     {
@@ -441,6 +460,7 @@ namespace EasySaveApp.model
                 XmlNode Date = xdoc.CreateElement("date");
                 XmlNode SizeOctet = xdoc.CreateElement("size");
                 XmlNode TransfertTime = xdoc.CreateElement("transfertTime");
+                XmlNode EncryptionTime = xdoc.CreateElement("encryptionTime"); // Nouveau
 
                 Name.InnerText = datalogs.SaveNameLog;
                 SourceFile.InnerText = datalogs.SourceLog;
@@ -448,6 +468,7 @@ namespace EasySaveApp.model
                 Date.InnerText = datalogs.BackupDateLog;
                 SizeOctet.InnerText = datalogs.TotalSizeLog.ToString();
                 TransfertTime.InnerText = datalogs.TransactionTimeLog;
+                EncryptionTime.InnerText = datalogs.EncryptionTimeLog.ToString(); // Nouveau
 
                 Log.AppendChild(Name);
                 Log.AppendChild(SourceFile);
@@ -455,6 +476,7 @@ namespace EasySaveApp.model
                 Log.AppendChild(Date);
                 Log.AppendChild(SizeOctet);
                 Log.AppendChild(TransfertTime);
+                Log.AppendChild(EncryptionTime); // Nouveau
 
                 xdoc.DocumentElement.PrependChild(Log);
                 xdoc.Save(pathfileXml);
@@ -486,6 +508,10 @@ namespace EasySaveApp.model
         /// </summary>
         public void AddSave(Backup backup)
         {
+            // Transférer les paramètres de cryptage
+            this.ExtensionsToEncrypt = backup.ExtensionsToEncrypt;
+            this.EncryptionPassword = backup.EncryptionPassword;
+
             List<Backup> backupList = new List<Backup>();
             this.serializeObj = null;
 
@@ -562,7 +588,7 @@ namespace EasySaveApp.model
                 {
                     if (obj.SaveName == backupname)
                     {
-                        // Reconstruction de l’objet Backup à 7 paramètres
+                        // Reconstruction de l'objet Backup à 7 paramètres
                         selectedBackup = new Backup(
                             obj.SaveName,
                             obj.ResourceBackup,
@@ -580,6 +606,10 @@ namespace EasySaveApp.model
             if (selectedBackup != null)
             {
                 NameStateFile = selectedBackup.SaveName;
+
+                // Transférer les paramètres de cryptage
+                this.ExtensionsToEncrypt = selectedBackup.ExtensionsToEncrypt;
+                this.EncryptionPassword = selectedBackup.EncryptionPassword;
 
                 if (selectedBackup.Type == "full")
                 {
@@ -609,7 +639,7 @@ namespace EasySaveApp.model
 
 
         /// <summary>
-        /// Renvoie la liste de tous les backups (pour lister leurs noms dans l’UI).
+        /// Renvoie la liste de tous les backups (pour lister leurs noms dans l'UI).
         /// </summary>
         public List<Backup> NameList()
         {
@@ -676,7 +706,7 @@ namespace EasySaveApp.model
 
 
         /// <summary>
-        /// Vérifie si l’une des applications bloquées (jail apps) tourne actuellement.
+        /// Vérifie si l'une des applications bloquées (jail apps) tourne actuellement.
         /// </summary>
         /// <returns>
         /// true si au moins un des noms donnés dans blacklist_app est en cours d'exécution ; false sinon.
