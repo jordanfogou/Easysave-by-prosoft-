@@ -1,0 +1,32 @@
+PROSIT ALLER 1
+
+Mots cles
+-poo
+-build
+-methode
+-plan damelioration
+-multi-plateform
+-modulaité
+
+Context 
+Suite au dev de 2fre frank et frencis remarquent que leurs méthodes ne sont plus adaptees a la croissence de l’expertise 
+Problématique 
+Deteminer une nouvelle méthode pour la gestion du projet 
+Généralisation : Versioning 
+Livrable : proposition d’envirenement 
+Hypothèses :
+•	Plan d’amélioration 
+•	Utilisation de git
+•	Se renseigner sur la POO 
+•	Se renseigner sur les différents outils de devops
+•	Etudier les envirenements adaptés
+•	Etudier l’integration continue 
+
+Plan d’action
+•	Lister les différents problemes rencontrés 
+•	Se resigner sur les outils de devops permettont de résoudre ces pb 
+•	Utilisation d’ide et  d’extentions 
+•	Gestion des build 
+•	Utilisation d’un outil de versionnage 
+•	Intégrer des pipelines d’integration continue
+•	Faire un kick off avec l’equipe build pour définir les règles du projet
