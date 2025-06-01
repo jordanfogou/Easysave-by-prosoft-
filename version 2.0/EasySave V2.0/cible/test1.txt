@@ -1,0 +1,44 @@
+
+Situation : j’ai un bouton dans le CRM qui envoie dans un Zoho sheet tout les enregistrements d’un module !
+
+Mon objectif est de pouvoir envoyer 100 enregistrements par minute de mon fichier Zohosheet vers l’API SIREN pour un enrichissement ! 
+
+J’ai deux solutions possibles pour atteindre mon objectif :
+1- vu que j’ai déjà un bouton qui envoie tous mes comptes vers le sheet , je voudrais faire en sorte qu’en cliquant sur le bouton d’envoi, tous les comptes soient envoyés mais ceci par lot de 100 après chaque minute ! 
+-Mon problème : je n’arrive pas à insérer dans mon bouton une fonction qui conditionnera l’envoi des 100 enregistrements / minutes.
+
+2- une autre solution serait d’envoyer  dans un premier temps tous les enregistrements dans le zohosheet ! et ensuite créer un flow qui se déclenchera pour mettre à jour 100 lignes d’une  colonne dans le fichier par minutes ! Et ces 100 lignes mises à jour seront automatiquement envoyés vers l’api SIREN 
+
+Problème rencontré avec cette solution : 
+A-je n’arrive pas dans zohoflow à faire un Fetch row qui me récupère 100 lignes 
+B- comment faire un Flow qui se déclenche après chaque 1 minute et non 1 fois par jour
+
+
+
+solution : faire déclencher notre schedule sur un webhook 
+apeller directement le ficher dans le code grace à son id ! 
+
+option: faire une ligne dans le flow principal qui apelle un autre flow pour update une ligne !
+
+chat de la réunion concernant les champs ( 
+Pour suivre l'état de traitement ajouter un champ pour chaque type de requête 
+MAJ−Siren [Date d'envoi]/[Etat du traitement]
+MAJ−Web [Date d'envoi]/[Etat du traitement]
+MAJ−Linkedin [Date d'envoi]/[Etat du traitement]
+
+Cependant, il est possible de contourner cette limitation :
+
+• Utiliser d’autres déclencheurs : Par exemple, des déclencheurs basés sur des événements d’application ou des webhooks qui se déclenchent immédiatement en cas d’événement.
+
+• Diviser votre processus en plusieurs flux : Vous pouvez créer plusieurs flux programmés à différents moments de la journée pour répondre à vos besoins.
+
+Ainsi, cette contrainte s’applique uniquement à la programmation par planification, et non à l’ensemble des fonctionnalités d’automatisation offertes par Zoho Flow.)
+
+
+ligne 8 : RendezVous RP
+
+pour les comptes : pour une affire x ou y 
+
+chopper les decideurs de la boite ( interrloc)
+
+tous les appels doivent avoir une seule entrée et une sortie et c'est à la sortie su'il y a le resultat 
