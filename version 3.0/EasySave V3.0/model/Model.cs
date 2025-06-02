@@ -133,21 +133,25 @@ namespace EasySaveApp.model
                 string tempPath = Path.Combine(backup.TargetBackup, file.Name);
 
 
-                if (isCheck == true && CryptExt(Path.GetExtension(file.Name))) { 
-                    CryptFunction(sourcePath, tempPath);
+                if (isCheck == true && CryptExt(Path.GetExtension(file.Name)))
+                {
+                    Debug.WriteLine($"CRYPTAGE EN COURS pour : {file.Name}");
+                    try
+                    {
+                        CryptFunction(sourcePath, tempPath);
+                        Debug.WriteLine($"Cryptage réussi : {tempPath}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"ERREUR CRYPTAGE : {ex.Message}");
+                        // Copier le fichier non crypté en cas d'erreur
+                        file.CopyTo(tempPath, true);
+                    }
                 }
                 else
                 {
-                    file.CopyTo(tempPath, true); //Function that allows you to copy the file to its new folder.
-                }
-                backupWithProgress.IsTransferingHeavyFile = false;
-
-                Nbfiles++;
-                Size += file.Length;
-
-                if (Size > 0)
-                {
-                    Progs = ((float)Size / TotalSize) * 100;
+                    Debug.WriteLine($"PAS DE CRYPTAGE pour : {file.Name}");
+                    file.CopyTo(tempPath, true);
                 }
 
                 //Systems which allows to insert the values ​​of each file in the report file.
@@ -251,13 +255,19 @@ namespace EasySaveApp.model
                 string sourcePath = Path.Combine(backup.ResourceBackup, file.Name);
                 string tempPath = Path.Combine(backup.TargetBackup, file.Name);
 
+                Debug.WriteLine($"isCheck: {isCheck}");
+                Debug.WriteLine($"Extension: {Path.GetExtension(file.Name)}");
+                Debug.WriteLine($"CryptExt result: {CryptExt(Path.GetExtension(file.Name))}");
+
                 if (isCheck == true && CryptExt(Path.GetExtension(file.Name)))
                 {
-                    CryptFunction(sourcePath, tempPath);
+                    Debug.WriteLine("CRYPTAGE EN COURS !");
+                    CryptFunction(sourcePath, tempPath); // Sans le 3e paramètre
                 }
                 else
                 {
-                    file.CopyTo(tempPath, true); //Function that allows you to copy the file to its new folder.
+                    Debug.WriteLine("PAS DE CRYPTAGE");
+                    file.CopyTo(tempPath, true);
                 }
 
                 Nbfiles++;
@@ -629,6 +639,8 @@ namespace EasySaveApp.model
         {
             using (Process process = new Process())//Declaration of the process
             {
+                // Mot de passe par défaut
+                string password = "EasySave2025";
                 process.StartInfo.FileName = @"Resources\CryptoSoft\CryptoSoft.exe"; //Calls the process that is CryptoSoft
                 process.StartInfo.Arguments = String.Format("\"{0}\"", sourceDir) + " " + String.Format("\"{0}\"", targetDir); //Preparation of variables for the process.
                 process.Start(); //Launching the process

@@ -40,11 +40,21 @@ namespace EasySaveApp.viewmodel
         }
 
 
-        public void AddSaveModel(string type, string saveName, string sourceDir, string targetDir, string mirrorDir)//Function that allows you to add a backup
+        public void AddSaveModel(string type, string saveName, string sourceDir, string targetDir, string mirrorDir)
         {
             model.SaveName = saveName;
-            Backup backup = new Backup(model.SaveName, sourceDir, targetDir, type, mirrorDir);
-            model.AddSave(backup); // Calling the function to add a backup job
+
+            // Pour la v3.0, on utilise des valeurs par défaut pour le cryptage
+            // Tu pourras les rendre configurables plus tard dans l'interface
+            string[] extensionsToEncrypt = new string[0]; // Vide par défaut
+            string encryptionPassword = string.Empty; // Vide par défaut
+
+            // Si tu veux utiliser les extensions du fichier CryptExtension.json :
+            // string[] extensionsToEncrypt = GetExtensionsFromCryptJson();
+
+            Backup backup = new Backup(saveName, sourceDir, targetDir, type, mirrorDir,
+                                       extensionsToEncrypt, encryptionPassword);
+            model.AddSave(backup);
         }
 
 

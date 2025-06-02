@@ -1,30 +1,60 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-	<UseWindowsForms>true</UseWindowsForms>
-    <RootNamespace>EasySaveApp</RootNamespace>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-    <Version>3.0.0</Version>
-    <ApplicationIcon>EasySaveLogo.ico</ApplicationIcon>
-  </PropertyGroup>
+	<PropertyGroup>
+		<!-- Type d’application WPF (fenêtre) -->
+		<OutputType>WinExe</OutputType>
 
-  <ItemGroup>
-    <Content Include="EasySaveLogo.ico" />
-  </ItemGroup>
+		<!-- 
+      IMPORTANT : pour pouvoir utiliser les API WPF (MessageBox, XAML, etc.) 
+      il faut cibler net8.0-windows (et non net8.0 tout court). 
+    -->
+		<TargetFramework>net8.0-windows</TargetFramework>
 
-  <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
-    <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.14" />
-    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
-  </ItemGroup>
+		<!-- Activer WPF -->
+		<UseWPF>true</UseWPF>
+		<!-- (Optionnel) Si vous utilisez aussi Windows Forms ailleurs : -->
+		<UseWindowsForms>true</UseWindowsForms>
+
+		<RootNamespace>EasySaveApp</RootNamespace>
+		<Nullable>enable</Nullable>
+
+		<!-- Version de votre appli -->
+		<Version>3.0.0</Version>
+
+		<!-- L’icône que vous voulez embarquer -->
+		<ApplicationIcon>EasySaveLogo.ico</ApplicationIcon>
+	</PropertyGroup>
 
 	<ItemGroup>
+		<!-- Votre icône en tant que ressource “Content” → copiée à la compilation -->
+		<Content Include="EasySaveLogo.ico">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Vos packages NuGet habituels -->
+		<PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+		<PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.14" />
+		<PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Tout ce qui se trouve dans le dossier Resources\ sera copié au répertoire de sortie -->
 		<Content Include="Resources\**">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
+
+	<!--
+    Si vous avez d’autres projets dans la solution (par exemple “EasySaveConsole”),
+    veillez à ce que leur <TargetFramework> soit aussi net8.0 ou net8.0-windows,
+    sinon Visual Studio affichera des erreurs de compatibilité.
+    Exemple de ProjectReference (décommentez si besoin) :
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasySaveConsole\EasySaveConsole.csproj" />
+  </ItemGroup>
+  -->
 
 </Project>

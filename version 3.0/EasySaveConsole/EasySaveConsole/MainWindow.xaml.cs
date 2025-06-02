@@ -129,6 +129,13 @@ namespace EasySaveConsole
 
         private void StartBackup_Click(object sender, RoutedEventArgs e)
         {
+            if (ListSaveWork.SelectedItem == null)
+            {
+                System.Windows.MessageBox.Show("Veuillez sélectionner une sauvegarde d’abord.", "Erreur");
+
+                return;
+            }
+
             string selected = ListSaveWork.SelectedItem.ToString();
 
             var message = JsonSerializer.SerializeToUtf8Bytes(new MessageContent { Type = MessageType.ClientStartTask, Body = selected });

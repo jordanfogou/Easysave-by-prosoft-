@@ -15,7 +15,7 @@
     </Window.Resources>
 
     <Window.Background>
-        <SolidColorBrush Color="#35524A"/>
+        <SolidColorBrush Color="#2C3E50"/>
     </Window.Background>
     <Grid>
 
@@ -31,8 +31,8 @@
         <Grid Grid.Row="1">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#35524A" Offset="1"/>
-                    <GradientStop Color="#35524A" Offset="0"/>
+                    <GradientStop Color="#2C3E50" Offset="1"/>
+                    <GradientStop Color="#2C3E50" Offset="0"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.RowDefinitions>
@@ -40,10 +40,10 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.Effect>
-                <DropShadowEffect BlurRadius="20" Color="#003E20" RenderingBias="Quality" ShadowDepth="1"/>
+                <DropShadowEffect BlurRadius="20" Color="#34495E" RenderingBias="Quality" ShadowDepth="1"/>
             </Grid.Effect>
 
-            <Grid Background="#35524A">
+            <Grid Background="#2C3E50">
                 <TextBlock Text="EASYSAVE" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontWeight="Normal" Foreground="White" FontSize="45"/>
                 <Rectangle HorizontalAlignment="Center" Height="100" Stroke="White" VerticalAlignment="Center" Width="200"/>
             </Grid>
@@ -112,7 +112,7 @@
 
             <Rectangle Margin="20,10,0,26" Fill="#F3F3F4" RadiusX="11" RadiusY="11"/>
             <Grid Grid.ColumnSpan="2">
-                <Button x:Name="buton_addsave" Click="ButtonAddSaveClick" Margin="510,138,40,36"  Background="#003E20" Height="48" BorderBrush="{x:Null}">
+                <Button x:Name="buton_addsave" Click="ButtonAddSaveClick" Margin="510,138,40,36"  Background="	#34495E" Height="48" BorderBrush="{x:Null}">
                     <Grid Width="150" Height="30">
                         <materialDesigin:PackIcon Kind="backup" Margin="-16,1,0,0" Foreground="White" Height="25" Width="25"/>
                         <TextBlock x:Name="text_addsave" Text="{DynamicResource ResourceKey = text_addsave}" FontFamily="Segoe UI Variable Text Semibold" TextAlignment="Center"  VerticalAlignment="Center" FontSize="10" Foreground="White" Margin="2,0,-22,0"/>
@@ -140,9 +140,9 @@
                     <TextBox x:Name="TargetDir" Grid.Column="1" Margin="0,102,0,97"  Width="143" HorizontalAlignment="Center"/>
                     <TextBox x:Name="MirrorDir" IsEnabled="{Binding IsChecked, ElementName=diff_button}" Grid.Column="1" HorizontalAlignment="Center" Margin="0,140,0,59"  Width="143"/>
 
-                    <Button Content="..." Click="SourceResourceClick" Margin="7,68,7,137" Grid.Column="2" Background="#003E20" Foreground="White" BorderBrush="{x:Null}"/>
-                    <Button Name="target_directory" Content="..." Click="TargetResourceClick" Grid.Column="2" Background="#003E20" Foreground="White" BorderBrush="{x:Null}" Margin="7,106,7,99"/>
-                    <Button Name="mirror_directory" Content="..." IsEnabled="{Binding IsChecked, ElementName=diff_button}" Click="MirrorResourceClick" Grid.Column="2" Background="#003E20" Foreground="White" BorderBrush="{x:Null}" Margin="7,142,7,63"/>
+                    <Button Content="..." Click="SourceResourceClick" Margin="7,68,7,137" Grid.Column="2" Background="#34495E" Foreground="White" BorderBrush="{x:Null}"/>
+                    <Button Name="target_directory" Content="..." Click="TargetResourceClick" Grid.Column="2" Background="#34495E" Foreground="White" BorderBrush="{x:Null}" Margin="7,106,7,99"/>
+                    <Button Name="mirror_directory" Content="..." IsEnabled="{Binding IsChecked, ElementName=diff_button}" Click="MirrorResourceClick" Grid.Column="2" Background="#34495E" Foreground="White" BorderBrush="{x:Null}" Margin="7,142,7,63"/>
                     <Label x:Name="name_backup_Copy" Content="{DynamicResource ResourceKey=msg_parameters}" FontFamily="Segoe UI Variable Text Semibold" Margin="109,42,0,151" Grid.Column="3" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"/>
 
 
@@ -166,7 +166,7 @@
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="button_play" Content="Play" Background="#003E20" Foreground="White" Width="50" Click="ButtonStartSaveClick"/>
+                                <Button x:Name="button_play" Content="Play" Background="#34495E" Foreground="White" Width="50" Click="ButtonStartSaveClick"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -177,7 +177,7 @@
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="button_pause" Content="Pause" Background="#003E20" Foreground="White" Width="50" Click="Button_Pause_click"></Button>
+                                <Button x:Name="button_pause" Content="Pause" Background="#34495E" Foreground="White" Width="50" Click="Button_Pause_click"></Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -188,7 +188,7 @@
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="button_stop" Content="Stop" Background="#003E20" Foreground="White" Width="50" Click="Button_Stop_click"></Button>
+                                <Button x:Name="button_stop" Content="Stop" Background="#34495E" Foreground="White" Width="50" Click="Button_Stop_click"></Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -206,24 +206,24 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button x:Name="button_start_save" Click="ButtonStartSaveClick" Margin="506,160,24,52"  Background="#003E20" BorderBrush="{x:Null}" Grid.Row="1">
+            <Button x:Name="button_start_save" Click="ButtonStartSaveClick" Margin="506,160,24,52"  Background="Green" BorderBrush="{x:Null}" Grid.Row="1">
                 <Grid Width="150" Height="30">
                     <materialDesigin:PackIcon Kind="Update" Margin="-16,1,0,0" Foreground="White" Height="25" Width="25"/>
                     <TextBlock x:Name="text_startbackup" Text="{DynamicResource ResourceKey = text_startbackup}" FontFamily="Segoe UI Variable Text Semibold" TextAlignment="Center"  VerticalAlignment="Center" FontSize="10" Foreground="White" Margin="4,0,-14,0" FontWeight="Bold"/>
                 </Grid>
             </Button>
 
-            <Rectangle Grid.Row="1"  Margin="50,147,317,15" Fill="#003E20" RadiusX="15" RadiusY="15"/>
+            <Rectangle Grid.Row="1"  Margin="50,147,317,15" Fill="#34495E" RadiusX="15" RadiusY="15"/>
             <materialDesigin:PackIcon Kind="Message" Margin="64,164,0,0" Foreground="White" Height="52" Width="56" Visibility="Visible" Grid.Row="1"/>
             <TextBlock x:Name="result" TextAlignment="Justify"  VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="122,160,0,0" FontFamily="Segoe UI Variable Text Semibold" Width="277" Grid.Row="1" Height="63" Foreground="White"/>
-            <Button Content="{DynamicResource ResourceKey = btn_selectall}" HorizontalAlignment="Left" Background="#003E20" Foreground="White" Margin="423,160,0,0" Grid.Row="1" VerticalAlignment="Top" Click="ButtonSelectAll" Height="34" Width="71" FontWeight="Bold"/>
-            <Button Click="ButtonDeleteSave" Background="#003E20" BorderBrush="{x:Null}" Margin="506,199,24,16" Grid.Row="1">
+            <Button Content="{DynamicResource ResourceKey = btn_selectall}" HorizontalAlignment="Left" Background="#34495E" Foreground="White" Margin="423,160,0,0" Grid.Row="1" VerticalAlignment="Top" Click="ButtonSelectAll" Height="34" Width="71" FontWeight="Bold"/>
+            <Button Click="ButtonDeleteSave" Background="#34495E" BorderBrush="{x:Null}" Margin="506,199,24,16" Grid.Row="1">
                 <Grid Width="150" Height="30">
                     <materialDesigin:PackIcon Kind="Delete" VerticalAlignment="Center" Margin="-4,0,0,0" Foreground="White" Height="19" Width="20"/>
                     <TextBlock x:Name="textdeletebackup"  Text="{DynamicResource ResourceKey=delete_backup}" Margin="16,0,0,0" FontFamily="Segoe UI Variable Text Semibold" TextAlignment="Center"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="154" FontSize="14" Foreground="White" FontWeight="Bold"/>
                 </Grid>
             </Button>
-            <Button Content="{DynamicResource ResourceKey=btn_unselectall}" HorizontalAlignment="Left" Background="#003E20" Foreground="White" Margin="423,200,0,0" Grid.Row="1" VerticalAlignment="Top" Click="ButtonUnselectAll" Height="32" Width="71" FontWeight="Bold"/>
+            <Button Content="{DynamicResource ResourceKey=btn_unselectall}" HorizontalAlignment="Left" Background="#34495E" Foreground="White" Margin="423,200,0,0" Grid.Row="1" VerticalAlignment="Top" Click="ButtonUnselectAll" Height="32" Width="71" FontWeight="Bold"/>
             <CheckBox x:Name="Cryptosoft_check" Content="Cryptosoft" HorizontalAlignment="Left" Margin="636,140,0,0" VerticalAlignment="Top" Height="16" Width="83" FontFamily="Segoe UI Variable Text Semibold" Click="Cryptosoft_check_Click" Grid.Row="1"/>
             <RadioButton x:Name="xml_button" GroupName="LogFile"  Content="XML" HorizontalAlignment="Left" Margin="520,140,0,0" VerticalAlignment="Top" Height="14"  IsChecked="True" Checked="XmlLog" Width="52" FontFamily="Segoe UI Variable Text Semibold" Grid.Row="1" />
             <RadioButton x:Name="Json_button" GroupName="LogFile" Content="Json" HorizontalAlignment="Left" Margin="578,140,0,0" VerticalAlignment="Top" Height="14"  Checked="JsonLog" Width="58" FontFamily="Segoe UI Variable Text Semibold" Grid.Row="1" />
@@ -231,9 +231,9 @@
 
         </Grid>
 
-        <Grid x:Name="Grid_Menu" Grid.ColumnSpan="2" Background="#003E20" MouseDown="GridMenuMouseDown">
+        <Grid x:Name="Grid_Menu" Grid.ColumnSpan="2" Background="#34495E" MouseDown="GridMenuMouseDown">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="#F3F3F4">
-                <Button x:Name="Buttonsmall" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#003E20" Click="Button_minimize">
+                <Button x:Name="Buttonsmall" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#34495E" Click="Button_minimize">
                     <materialDesigin:PackIcon Kind="WindowMinimize"/>
                 </Button>
                 <Button x:Name="Buttonexit" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Red" Click="ButtonExit">

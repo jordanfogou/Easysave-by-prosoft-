@@ -1,4 +1,4 @@
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading;
 
@@ -6,7 +6,7 @@ namespace EasySaveApp.model
 {
     public class Backup
     {
-        // Declaration of properties that are used for saving backup information for the backup job file
+        // Déclaration des propriétés utilisées pour enregistrer les informations d’un job de sauvegarde
         public string ResourceBackup { get; set; }
         public string TargetBackup { get; set; }
         public string SaveName { get; set; }
@@ -15,16 +15,65 @@ namespace EasySaveApp.model
         public float Progress { get; set; }
         public long TotalSize { get; set; }
 
-        public Backup() { }
+        // ─────────────────────────────────────────────────────────────────────────
+        // NOUVELLES PROPRIÉTÉS POUR LE CRYPTAGE (depuis v2.0)
+        // ─────────────────────────────────────────────────────────────────────────
+        public string[] ExtensionsToEncrypt { get; set; }
+        public string EncryptionPassword { get; set; }
 
-        public Backup(string saveName, string source, string target, string type, string mirror, float progress = 0)
+        /// <summary>
+        /// Constructeur sans paramètres (initialise les champs de cryptage par défaut).
+        /// </summary>
+        public Backup()
+        {
+            ExtensionsToEncrypt = new string[0];
+            EncryptionPassword = string.Empty;
+        }
+
+        /// <summary>
+        /// Constructeur complet avec tous les paramètres (nom, source, cible, type, miroir, extensions à chiffrer, mot de passe, progression).
+        /// </summary>
+        public Backup(
+            string saveName,
+            string source,
+            string target,
+            string type,
+            string mirror,
+            string[] extensionsToEncrypt,
+            string encryptionPassword,
+            float progress = 0
+        )
         {
             SaveName = saveName;
             ResourceBackup = source;
             TargetBackup = target;
             Type = type;
             MirrorBackup = mirror;
+            ExtensionsToEncrypt = extensionsToEncrypt ?? new string[0];
+            EncryptionPassword = encryptionPassword ?? string.Empty;
             Progress = progress;
+        }
+
+        /// <summary>
+        /// Constructeur de compatibilité (5 paramètres) – initialise les nouvelles propriétés à leurs valeurs par défaut.
+        /// </summary>
+        public Backup(
+            string saveName,
+            string source,
+            string target,
+            string type,
+            string mirror
+        ) : this(
+                saveName,
+                source,
+                target,
+                type,
+                mirror,
+                new string[0],   // Extensions à chiffrer vides
+                string.Empty,    // Mot de passe vide
+                0                // Progression initiale à 0
+            )
+        {
         }
     }
 
@@ -62,20 +111,19 @@ namespace EasySaveApp.model
             _IsRunning = false;
         }
 
-        protected void OnPropertyChanged([CallerMemberName] string ?name = null)
+        protected void OnPropertyChanged([CallerMemberName] string? name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
         protected void OnIsProcessingPrioritizedFileChanged()
         {
-            IsProcessingPrioritizedFileChanged?.Invoke(this, new PropertyChangedEventArgs("IsProcessingPrioritizedFile"));
+            IsProcessingPrioritizedFileChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsProcessingPrioritizedFile)));
         }
 
         protected void OnIsTransferingHeavyFileChanged()
         {
-            IsTransferingHeavyFileChanged?.Invoke(this, new PropertyChangedEventArgs("IsTransferingHeavyFile"));
+            IsTransferingHeavyFileChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsTransferingHeavyFile)));
         }
     }
-
 }
